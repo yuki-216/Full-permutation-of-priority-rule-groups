@@ -25,7 +25,7 @@ HQ
 
 DynaHDR  
 包含 hdr10\+[\s.]+|(?=.*(Dolby[\s.]+Vision|DOVI|[\s.]+DV[\s.]+|杜比视界))(?=.*hdr)  
-作用 选取兼容的动态元数据的hdr资源（[杜比视界+hdr}和“hdr10+”）  
+作用 选取兼容的动态元数据的hdr资源（[杜比视界+hdr]和“hdr10+”）  
  
 filterOriginal  
 排除 ^(?!.*remux)(?=.*(diy|原盘))  
