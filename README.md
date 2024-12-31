@@ -40,10 +40,10 @@ onlydv
 作用 就是筛选出纯dv，不兼容会发紫的那个。以及双层杜比也排除掉了，因为我也没有蓝光机，如果不需要的话把最后|后面的删掉。
 
 个人在使用的规则，没有做分类，只是全局的。  
-自定义规则
+自定义规则  
 [{"id":"filterGlobal","name":"filterGlobal","include":"","exclude":"无字|先行|BDMV|RMVB|vcd|480p|枪版|hami|TC","seeders":"1"},{"id":"HQ","name":"HQ","include":"HQ|高码|EDR","exclude":"","size_range":""},{"id":"filteronlydv","name":"filteronlydv","include":"","exclude":"(?=.*(Dolby[\\s.]+Vision|DOVI|[\\s.]+DV[\\s.]+|杜比视界))(^(?!.*HDR)|(?=.*p7|双层))"},{"id":"DynaHDR","name":"动态hdr","include":"hdr10\\+[\\s.]+|(?=.*(Dolby[\\s.]+Vision|DOVI|[\\s.]+DV[\\s.]+|杜比视界))(?=.*hdr)","exclude":""},{"id":"filterOriginal","name":"filterOriginal","include":"","exclude":"^(?!.*remux)(?=.*(diy|原盘))"},{"id":"hdrx","name":"hdrx","include":"hdr[\\s.]+","exclude":""}]
 
-优先级规则组
+优先级规则组  
 [{"name":"前置排除","rule_string":"filterOriginal&filteronlydv&filterGlobal& !3D ","media_type":"","category":""},{"name":"4k洗版","rule_string":" 4K ","media_type":"","category":""},{"name":"下载规则组","rule_string":" SPECSUB & 60FPS & DynaHDR & HQ > SPECSUB & 60FPS & hdrx & HQ > 60FPS & DynaHDR & HQ > 60FPS & hdrx & HQ > SPECSUB & DynaHDR & HQ > SPECSUB & hdrx & HQ > DynaHDR & HQ > hdrx & HQ > SPECSUB & 60FPS & HQ > 60FPS & HQ > SPECSUB & HQ > HQ > SPECSUB & 60FPS & DynaHDR > SPECSUB & 60FPS & hdrx > 60FPS & DynaHDR > 60FPS & hdrx > SPECSUB & DynaHDR > SPECSUB & hdrx > DynaHDR > hdrx > SPECSUB & 60FPS > 60FPS > SPECSUB > !3D ","media_type":"","category":""}]
 
-说明，显示前置排除一波，然后4k洗版是用来给洗版加一个4k要求，下载规则组实现的是 HQ高码 优先级大于 杜比等hdr 大于 60帧 大于 特效字幕。
+说明，先前置排除一波，然后4k洗版是用来给洗版加一个4k要求，下载规则组实现的是 HQ高码 优先级大于 杜比等hdr 大于 60帧 大于 特效字幕。
