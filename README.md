@@ -39,7 +39,7 @@ onlydv
 排除 (?=.*(Dolby[\s.]+Vision|DOVI|[\s.]+DV[\s.]+|杜比视界))(^(?!.*HDR)|(?=.*p7|双层))
 作用 就是筛选出纯dv，不兼容会发紫的那个。以及双层杜比也排除掉了，因为我也没有蓝光机，如果不需要的话把最后|后面的删掉。
 
-个人在使用的规则，没有做分类，只是全局的。
+个人在使用的规则，没有做分类，只是全局的。  
 自定义规则
 [{"id":"filterGlobal","name":"filterGlobal","include":"","exclude":"无字|先行|BDMV|RMVB|vcd|480p|枪版|hami|TC","seeders":"1"},{"id":"HQ","name":"HQ","include":"HQ|高码|EDR","exclude":"","size_range":""},{"id":"filteronlydv","name":"filteronlydv","include":"","exclude":"(?=.*(Dolby[\\s.]+Vision|DOVI|[\\s.]+DV[\\s.]+|杜比视界))(^(?!.*HDR)|(?=.*p7|双层))"},{"id":"DynaHDR","name":"动态hdr","include":"hdr10\\+[\\s.]+|(?=.*(Dolby[\\s.]+Vision|DOVI|[\\s.]+DV[\\s.]+|杜比视界))(?=.*hdr)","exclude":""},{"id":"filterOriginal","name":"filterOriginal","include":"","exclude":"^(?!.*remux)(?=.*(diy|原盘))"},{"id":"hdrx","name":"hdrx","include":"hdr[\\s.]+","exclude":""}]
 
