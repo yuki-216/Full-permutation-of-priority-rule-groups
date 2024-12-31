@@ -30,3 +30,7 @@ DynaHDR
 filterOriginal  
 排除 ^(?!.*remux)(?=.*(diy|原盘))  
 作用 替代官方的“bluray”原盘，优化命中逻辑，减少误命中的情况  
+
+hdrx
+包含 hdr[\s.]+
+作用 代替官方的hdr，我感觉这样简化一点就够了，加快点速度
