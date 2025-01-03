@@ -54,4 +54,4 @@ wuyi
 优先级规则组  
 [{"name":"前置排除","rule_string":"filterOriginal&filteronlydv&filterGlobal& !3D ","media_type":"","category":""},{"name":"4k洗版","rule_string":" 4K ","media_type":"","category":""},{"name":"下载规则组","rule_string":" SPECSUB & DynaHDR & qiyi > DynaHDR & qiyi > SPECSUB & DynaHDR & wuyi > DynaHDR & wuyi > SPECSUB & hdrx & qiyi > hdrx & qiyi > SPECSUB & hdrx & wuyi > hdrx & wuyi > SPECSUB & qiyi > qiyi > SPECSUB & wuyi > wuyi > SPECSUB & DynaHDR > DynaHDR > SPECSUB & hdrx > hdrx > SPECSUB > !3D ","media_type":"","category":""}]
 
-说明，先前置排除一波(包括了杜比无损全景声，这个也要求蓝光机)，然后4k洗版是用来给洗版加一个4k要求，下载规则组实现的是 HQ高码 优先级大于 杜比等hdr 大于 60帧 大于 特效字幕。
+说明，先前置排除一波(包括了杜比无损全景声，这个也要求蓝光机)，然后4k洗版是用来给洗版加一个4k要求，下载规则组实现的是 多声道 优先级大于 杜比等hdr  大于 特效字幕。
