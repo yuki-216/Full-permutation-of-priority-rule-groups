@@ -1,4 +1,3 @@
-本小应用旨在帮助自动化生成moviepilot中全条件的优先级规则组排序  
 官方tag： 官方原本的tag，可供快速复制  
 规则组代码 即规则id，支持自定义规则   
 权重 权重推荐按如下设置以二为倍数设置阶梯，值越大越重要；同组权重以最高权重为基准递减；  
@@ -24,34 +23,34 @@ HQ
 作用 选取高码率  
 
 DynaHDR  
-包含 hdr10\+[\s.]+|(?=.*(Dolby[\s.]+Vision|DOVI|[\s.]+DV[\s.]+|杜比视界))(?=.*hdr)  
+包含 `hdr10\+[\s.]+|(?=.*(Dolby[\s.]+Vision|DOVI|[\s.]+DV[\s.]+|杜比视界))(?=.*hdr)`
 作用 选取兼容的动态元数据的hdr资源（[杜比视界+hdr]和“hdr10+”）  
  
 filterOriginal  
-排除 ^(?!.*remux)(?=.*(diy|原盘))  
+排除 `^(?!.*remux)(?=.*(diy|原盘))`
 作用 替代官方的“bluray”原盘，优化命中逻辑，减少误命中的情况  
 
 hdrx
-包含 hdr[\s.]+
+包含 `hdr[\s.]+`
 作用 代替官方的hdr，我感觉这样简化一点就够了，加快点速度
 
 onlydv
-排除 (?=.*(Dolby[\s.]+Vision|DOVI|[\s.]+DV[\s.]+|杜比视界))(^(?!.*HDR)|(?=.*p7|双层))
+排除 `(?=.*(Dolby[\s.]+Vision|DOVI|[\s.]+DV[\s.]+|杜比视界))(^(?!.*HDR)|(?=.*p7|双层))`
 作用 就是筛选出纯dv，不兼容会发紫的那个。以及双层杜比也排除掉了，因为我也没有蓝光机，如果不需要的话把最后|后面的删掉。
 
 qiyi  
-包含 7[\s.]1[\s.-]  
+包含 `7[\s.]1[\s.-]`
 作用 7.1多声道  
 
 wuyi  
-包含 5[\s.]1[\s.-]   
+包含 `5[\s.]1[\s.-]`
 作用 5.1多声道  
 
 个人在使用的规则，没有做分类，只是全局的。  
 自定义规则  
-[{"id":"filterGlobal","name":"filterGlobal","include":"","exclude":"无字|先行|BDMV|RMVB|vcd|480p|枪版|hami|TC|TrueHd","seeders":"1"},{"id":"HQ","name":"HQ","include":"HQ|高码|EDR","exclude":"","size_range":""},{"id":"filteronlydv","name":"filteronlydv","include":"","exclude":"(?=.*(Dolby[`\\s`.]+Vision|DOVI|[\1\s.]+DV[\\s.]+|杜比视界))(^(?!.*HDR)|(?=.*p7|双层))"},{"id":"DynaHDR","name":"动态hdr","include":"hdr10\\+[\\s.]+|(?=.*(Dolby[\\s.]+Vision|DOVI|[\\s.]+DV[\\s.]+|杜比视界))(?=.*hdr)","exclude":""},{"id":"filterOriginal","name":"filterOriginal","include":"","exclude":"^(?!.*remux)(?=.*(diy|原盘))"},{"id":"hdrx","name":"hdrx","include":"hdr[\\s.]+","exclude":""},{"id":"qiyi","name":"7.1","include":"7[\\s.]1[\\s.-]?"},{"id":"wuyi","name":"5.1","include":"5[\\s.]1[\\s.-]"}]
+`[{"id":"filterGlobal","name":"filterGlobal","include":"","exclude":"无字|先行|BDMV|RMVB|vcd|480p|枪版|hami|TC|TrueHd","seeders":"1"},{"id":"HQ","name":"HQ","include":"HQ|高码|EDR","exclude":"","size_range":""},{"id":"filteronlydv","name":"filteronlydv","include":"","exclude":"(?=.*(Dolby[\\s.]+Vision|DOVI|[\\s.]+DV[\\s.]+|杜比视界))(^(?!.*HDR)|(?=.*p7|双层))"},{"id":"DynaHDR","name":"动态hdr","include":"hdr10\\+[\\s.]+|(?=.*(Dolby[\\s.]+Vision|DOVI|[\\s.]+DV[\\s.]+|杜比视界))(?=.*hdr)","exclude":""},{"id":"filterOriginal","name":"filterOriginal","include":"","exclude":"^(?!.*remux)(?=.*(diy|原盘))"},{"id":"hdrx","name":"hdrx","include":"hdr[\\s.]+","exclude":""},{"id":"qiyi","name":"7.1","include":"7[\\s.]1[\\s.-]?"},{"id":"wuyi","name":"5.1","include":"5[\\s.]1[\\s.-]"}]`
 
 优先级规则组  
-[{"name":"前置排除","rule_string":"filterOriginal&filteronlydv&filterGlobal","media_type":"","category":""},{"name":"4k洗版","rule_string":" 4K ","media_type":"","category":""},{"name":"下载规则组","rule_string":" SPECSUB & DynaHDR & qiyi > DynaHDR & qiyi > SPECSUB & DynaHDR & wuyi > DynaHDR & wuyi > SPECSUB & hdrx & qiyi > hdrx & qiyi > SPECSUB & hdrx & wuyi > hdrx & wuyi > SPECSUB & qiyi > qiyi > SPECSUB & wuyi > wuyi > SPECSUB & DynaHDR > DynaHDR > SPECSUB & hdrx > hdrx > SPECSUB > !3D ","media_type":"","category":""}]
+`[{"name":"前置排除","rule_string":"filterOriginal&filteronlydv&filterGlobal","media_type":"","category":""},{"name":"4k洗版","rule_string":" 4K ","media_type":"","category":""},{"name":"下载规则组","rule_string":" SPECSUB & DynaHDR & qiyi > DynaHDR & qiyi > SPECSUB & DynaHDR & wuyi > DynaHDR & wuyi > SPECSUB & hdrx & qiyi > hdrx & qiyi > SPECSUB & hdrx & wuyi > hdrx & wuyi > SPECSUB & qiyi > qiyi > SPECSUB & wuyi > wuyi > SPECSUB & DynaHDR > DynaHDR > SPECSUB & hdrx > hdrx > SPECSUB > !3D ","media_type":"","category":""}]`
 
 说明，先前置排除一波，然后4k洗版是用来给洗版加一个4k要求，下载规则组实现的是 多声道 优先级大于 杜比等hdr  大于 特效字幕。
